@@ -1,7 +1,8 @@
+import { useState } from 'react'
 import { PageProps, graphql } from 'gatsby'
-import React, { useState } from 'react'
 import Introduction from '../components/main/Introduction'
 import Category from '../components/main/Category'
+import React from 'react'
 
 export default function Index({
   data: {
@@ -9,6 +10,7 @@ export default function Index({
   },
 }: PageProps<Queries.IndexPageQuery>) {
   const [selectedCategory, setSelectedCategory] = useState<string>('All')
+
   const categories = nodes.reduce<Record<string, number>>(
     (categories, post) => {
       post.category
@@ -22,6 +24,11 @@ export default function Index({
     { All: nodes.length },
   )
 
+  const posts = nodes.filter(
+    ({ category }) =>
+      selectedCategory === 'All' || category?.includes(selectedCategory),
+  )
+
   const handleSelectCategory = (category: string) =>
     setSelectedCategory(category)
 
@@ -33,7 +40,8 @@ export default function Index({
         selectedCategory={selectedCategory}
         handleSelect={handleSelectCategory}
       />
-      {nodes.map(({ title, slug, date }) => (
+
+      {posts.map(({ title, slug, date }) => (
         <div key={slug}>
           {title} / {date} / {slug}
         </div>

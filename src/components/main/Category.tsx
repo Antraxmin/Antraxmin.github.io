@@ -11,7 +11,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 5px 20px;
-  margin-top: 80px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 `
 
 const Item = styled.div<{ $selected: boolean }>`

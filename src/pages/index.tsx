@@ -1,30 +1,19 @@
 import { PageProps, graphql } from 'gatsby'
-import Layout from '../components/common/Layout'
 import React from 'react'
-
-interface IndexPageQuery {
-  allContentfulPost: {
-    nodes: {
-      title: string
-      slug: string
-      date: string
-    }[]
-  }
-}
 
 export default function Index({
   data: {
     allContentfulPost: { nodes },
   },
-}: PageProps<IndexPageQuery>) {
+}: PageProps<Queries.IndexPageQuery>) {
   return (
-    <Layout>
+    <div>
       {nodes.map(({ title, slug, date }) => (
         <div key={slug}>
           {title} / {date} / {slug}
         </div>
       ))}
-    </Layout>
+    </div>
   )
 }
 

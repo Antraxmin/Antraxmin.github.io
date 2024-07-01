@@ -6,17 +6,21 @@ import React from 'react'
 import { styled } from 'styled-components'
 
 const Postlist = styled.div`
-  display: flex,
-  flex-direction: column,
-  flex-wrap: wrap,
-  gap: 10,
-  margin-top: 40,
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
 `
 
 const Postbox = styled.div`
   @media (min-width: 768px) {
     display: flex;
   }
+`
+
+const Titlebox = styled.div`
+  font-weight: 400;
 `
 
 const Datebox = styled.div`
@@ -66,7 +70,7 @@ export default function Index({
       <Postlist>
         {posts.map(({ title, slug, date }) => (
           <Postbox key={slug}>
-            <div>{title}</div>
+            <Titlebox>{title}</Titlebox>
             <Datebox>{date}</Datebox>
           </Postbox>
         ))}

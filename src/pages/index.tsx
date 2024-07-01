@@ -3,6 +3,15 @@ import { PageProps, graphql } from 'gatsby'
 import Introduction from '../components/main/Introduction'
 import Category from '../components/main/Category'
 import React from 'react'
+import { styled } from 'styled-components'
+
+const Postlist = styled.div`
+  display: flex,
+  flex-direction: column,
+  flex-wrap: wrap,
+  gap: 10,
+  margin-top: 40,
+`
 
 export default function Index({
   data: {
@@ -40,22 +49,14 @@ export default function Index({
         selectedCategory={selectedCategory}
         handleSelect={handleSelectCategory}
       />
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'column',
-          flexWrap: 'wrap',
-          gap: 10,
-          marginTop: 40,
-        }}
-      >
+      <Postlist>
         {posts.map(({ title, slug, date }) => (
           <div key={slug}>
             <div>{title}</div>
             <div style={{ fontSize: 12 }}> {date}</div>
           </div>
         ))}
-      </div>
+      </Postlist>
     </>
   )
 }

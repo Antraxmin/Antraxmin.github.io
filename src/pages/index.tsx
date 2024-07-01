@@ -40,12 +40,15 @@ export default function Index({
         selectedCategory={selectedCategory}
         handleSelect={handleSelectCategory}
       />
-
-      {posts.map(({ title, slug, date }) => (
-        <div key={slug}>
-          {title} / {date} / {slug}
-        </div>
-      ))}
+      <div
+        style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 40 }}
+      >
+        {posts.map(({ title, slug, date }) => (
+          <div key={slug}>
+            {title} / {date} / {slug}
+          </div>
+        ))}
+      </div>
     </>
   )
 }

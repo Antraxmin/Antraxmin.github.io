@@ -16,6 +16,7 @@ const Postlist = styled.div`
 const Postbox = styled.div`
   @media (min-width: 768px) {
     display: flex;
+    justify-content: space-between;
   }
 `
 

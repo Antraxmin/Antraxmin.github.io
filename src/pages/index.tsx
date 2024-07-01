@@ -13,8 +13,18 @@ const Postlist = styled.div`
   margin-top: 40,
 `
 
+const Postbox = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`
+
 const Datebox = styled.div`
-  font-size: 12;
+  font-size: 12px;
+
+  @media (min-width: 768px) {
+    font-size: 15px;
+  }
 `
 
 export default function Index({
@@ -55,10 +65,10 @@ export default function Index({
       />
       <Postlist>
         {posts.map(({ title, slug, date }) => (
-          <div key={slug}>
+          <Postbox key={slug}>
             <div>{title}</div>
             <Datebox>{date}</Datebox>
-          </div>
+          </Postbox>
         ))}
       </Postlist>
     </>

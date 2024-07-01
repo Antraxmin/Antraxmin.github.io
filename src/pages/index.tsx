@@ -45,7 +45,7 @@ export default function Index({
       >
         {posts.map(({ title, slug, date }) => (
           <div key={slug}>
-            {title} / {date} / {slug}
+            {title} {date}
           </div>
         ))}
       </div>

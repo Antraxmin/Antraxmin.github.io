@@ -13,6 +13,10 @@ const Postlist = styled.div`
   margin-top: 40,
 `
 
+const Datebox = styled.div`
+  font-size: 12;
+`
+
 export default function Index({
   data: {
     allContentfulPost: { nodes },
@@ -53,7 +57,7 @@ export default function Index({
         {posts.map(({ title, slug, date }) => (
           <div key={slug}>
             <div>{title}</div>
-            <div style={{ fontSize: 12 }}> {date}</div>
+            <Datebox>{date}</Datebox>
           </div>
         ))}
       </Postlist>

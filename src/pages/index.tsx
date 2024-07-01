@@ -41,11 +41,18 @@ export default function Index({
         handleSelect={handleSelectCategory}
       />
       <div
-        style={{ display: 'flex', flexWrap: 'wrap', gap: 10, marginTop: 40 }}
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          flexWrap: 'wrap',
+          gap: 10,
+          marginTop: 40,
+        }}
       >
         {posts.map(({ title, slug, date }) => (
           <div key={slug}>
-            {title} {date}
+            <div>{title}</div>
+            <div style={{ fontSize: 12 }}> {date}</div>
           </div>
         ))}
       </div>
